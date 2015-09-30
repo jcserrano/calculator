@@ -15,4 +15,13 @@
       expect(calc(12, 4, '/')).toEqual(3);
     });
   });
+
+  describe('Currency Converter', function() {
+    it('can convert Euros (EUR) to US Dollars (USD) ', function() {
+      expect(currencyConverter(10, "EUR", "USD")).toEqual(11.23);  
+    });
+    it('can convert Euros (EUR) to Indian Rupee (INR) ', function() {
+      expect(currencyConverter(50, "EUR", "INR")).toEqual(3699.82);  
+    });
+  });
 })();

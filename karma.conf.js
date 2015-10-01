@@ -63,6 +63,28 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
-    preprocessors: { 'src/*.js': ['coverage'] }
+    preprocessors: { 'src/*.js': ['coverage'], 'src/*.js': ['jshint'] },
+
+    jshint: {
+      options: {
+        curly: true,
+        eqeqeq: true,
+        immed: true,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        undef: true,
+        boss: true,
+        devel: true,
+        eqnull: true,
+        browser: true,
+        globals: {
+            cordova: true,
+            jQuery: true
+        }
+      },
+      summary: true
+    },
   })
 }

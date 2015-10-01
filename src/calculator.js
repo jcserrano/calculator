@@ -36,9 +36,9 @@ var CurrencyConverter = function(){
   this.getExchangeRate = function(fromCurrency, toCurrency) {
     for (var iFromCurrency in this.objExchangeRate) {
       var defaultExchangeRate = this.objExchangeRate[iFromCurrency];
-      if(iFromCurrency == fromCurrency) {
+      if(iFromCurrency === fromCurrency) {
         for (var iToCurrency in defaultExchangeRate) {
-          if(iToCurrency == toCurrency) {
+          if(iToCurrency === toCurrency) {
             return defaultExchangeRate[iToCurrency];
           }
         }
@@ -46,5 +46,5 @@ var CurrencyConverter = function(){
         return undefined;
       }
     }
-  }
+  };
 };

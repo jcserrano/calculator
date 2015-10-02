@@ -84,14 +84,20 @@
       expect(result).toEqual(3699.82);
     });
 
-    it('should get exchange rate with toCurrency incorrect', function() {
+    it('should get exchange rate with  correct currency', function() {
       var rate = converter.getExchangeRate("EUR", "INR");
 
       expect(rate).toEqual(73.9965);
     });
 
-    it('should not get exchange rate fromCurrency incorrect', function() {
+    it('should not get exchange rate  with incorrect fromCurrency', function() {
       var rate = converter.getExchangeRate("FRA", "INR");
+
+      expect(rate).toBeUndefined();
+    });
+
+    it('should not get exchange rate with incorrect toCurrency', function() {
+      var rate = converter.getExchangeRate("EUR", "FRA");
 
       expect(rate).toBeUndefined();
     });

@@ -44,6 +44,13 @@ module.exports = function(config) {
       suite: ''
     },
 
+    coverageReporter: {
+        reporters: [
+            { type: 'html', dir: 'coverage/' },
+            { type: 'cobertura', dir: 'coverage/', file: 'coverage.xml'}
+        ]
+    },
+
     // web server port
     port: 9876,
 

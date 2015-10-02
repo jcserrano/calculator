@@ -22,7 +22,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-
+        'src/index.js'
     ],
 
 
@@ -46,8 +46,8 @@ module.exports = function(config) {
 
     coverageReporter: {
         reporters: [
-            { type: 'html', dir: 'coverage/' },
-            { type: 'cobertura', dir: 'coverage/', file: 'coverage.xml'}
+            { type: 'html', dir: 'coverage/', subdir: 'report-html' },
+            { type: 'cobertura', dir: 'coverage/', subdir: 'report-xml', file: 'coverage.xml'}
         ]
     },
 

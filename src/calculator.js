@@ -25,6 +25,10 @@ var CurrencyConverter = function(){
     "EUR": {
       "USD": 1.123,
       "INR": 73.9965
+    },
+    "USD": {
+      "EUR": 0.8945,
+      "INR": 65.711
     }
   };
 
@@ -42,8 +46,6 @@ var CurrencyConverter = function(){
             return defaultExchangeRate[iToCurrency];
           }
         }
-      } else {
-        return undefined;
       }
     }
   };

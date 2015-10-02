@@ -69,18 +69,13 @@ module.exports = function(config) {
         eqeqeq: true,
         immed: true,
         latedef: true,
-        newcap: true,
         noarg: true,
         sub: true,
         undef: true,
         boss: true,
         devel: true,
         eqnull: true,
-        browser: true,
-        globals: {
-            cordova: true,
-            jQuery: true
-        }
+        browser: true
       },
       summary: true
     },

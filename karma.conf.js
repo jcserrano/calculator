@@ -29,7 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/*.js': ['coverage', 'jshint']
+      'src/*.js': ['coverage']
     },
 
 
@@ -76,22 +76,5 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
-
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        devel: true,
-        eqnull: true,
-        browser: true
-      },
-      summary: true
-    },
   })
 }

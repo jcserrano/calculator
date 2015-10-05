@@ -12,6 +12,7 @@ gulp.task('test', function (done) {
 
 gulp.task('plato', function () {
   return gulp.src(__dirname + '/src/*.js')
+    .pipe(plato('reports/plato', {
     .pipe(plato('report', {
         jshint: {
             options: {

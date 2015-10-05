@@ -39,15 +39,15 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage', 'junit'],
 
     junitReporter: {
-      outputDir: '',
+      outputDir: 'reports/junit',
       outputFile: undefined,
       suite: ''
     },
 
     coverageReporter: {
         reporters: [
-            { type: 'html', dir: 'coverage/', subdir: 'report-html' },
-            { type: 'cobertura', dir: 'coverage/', subdir: 'report-xml', file: 'coverage.xml'}
+            { type: 'html', dir: 'reports/coverage/', subdir: 'report-html' },
+            { type: 'cobertura', dir: 'reports/coverage/', subdir: 'report-xml', file: 'index.xml'}
         ]
     },
 

@@ -13,10 +13,20 @@ gulp.task('test', function (done) {
 gulp.task('plato', function () {
   return gulp.src(__dirname + '/src/*.js')
     .pipe(plato('reports/plato', {
-    .pipe(plato('report', {
         jshint: {
             options: {
-                strict: true
+                camelcase: true,
+                curly: true,
+                eqeqeq: true,
+                immed: true,
+                latedef: true,
+                noarg: true,
+                sub: true,
+                undef: true,
+                boss: true,
+                devel: true,
+                eqnull: true,
+                browser: true
             }
         },
         complexity: {

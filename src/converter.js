@@ -1,5 +1,5 @@
-var CurrencyConverter = function(){
-  this.objExchangeRate = {
+var converterModule = (function () {
+  var objExchangeRate = {
     "EUR": {
       "USD": 1.123,
       "INR": 73.9965
@@ -10,14 +10,9 @@ var CurrencyConverter = function(){
     }
   };
 
-  this.calc = function(val, fromCurrency, toCurrency) {
-    var eRate = this.getExchangeRate(fromCurrency, toCurrency);
-    return Number((val * eRate).toFixed(2));
-  };
-
-  this.getExchangeRate = function(fromCurrency, toCurrency) {
-    for (var iFromCurrency in this.objExchangeRate) {
-      var defaultExchangeRate = this.objExchangeRate[iFromCurrency];
+  function getExchangeRate(fromCurrency, toCurrency) {
+    for (var iFromCurrency in objExchangeRate) {
+      var defaultExchangeRate = objExchangeRate[iFromCurrency];
       if(iFromCurrency === fromCurrency) {
         for (var iToCurrency in defaultExchangeRate) {
           if(iToCurrency === toCurrency) {
@@ -27,4 +22,13 @@ var CurrencyConverter = function(){
       }
     }
   };
-};
+
+  return {
+    calc: function(val, fromCurrency, toCurrency) {
+      var eRate = getExchangeRate(fromCurrency, toCurrency);
+      return Number((val * eRate).toFixed(2));
+    }
+  };
+})();
+
+module.exports = converterModule;

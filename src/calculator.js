@@ -1,21 +1,33 @@
-var Calculator = function(converter){
-  this.add = function(num1, num2) {
-    return Number(num1) + Number(num2);
-  };
+var converter = require('./converter.js');
 
-  this.sub = function(num1, num2) {
-    return Number(num1) - Number(num2);
-  };
+var calculatorModule = (function () {
+  var converter;
 
-  this.mult = function(num1, num2) {
-    return Number(num1) * Number(num2);
-  };
+  return {
+    add: function(num1, num2) {
+      return Number(num1) + Number(num2);
+    },
 
-  this.div = function(num1, num2) {
-    return Number(num1) / Number(num2);
-  };
+    sub: function(num1, num2) {
+      return Number(num1) - Number(num2);
+    },
 
-  this.currencyConverter = function(value, fromCurrency, toCurrency) {
-    return converter.calc(value, fromCurrency, toCurrency);
+    mult: function(num1, num2) {
+      return Number(num1) * Number(num2);
+    },
+
+    div: function(num1, num2) {
+      return Number(num1) / Number(num2);
+    },
+
+    addConverter: function(c) {
+      converter = c;
+    },
+
+    currencyConverter: function(value, fromCurrency, toCurrency) {
+      return converter.calc(value, fromCurrency, toCurrency);
+    }
   };
-};
+})();
+
+module.exports = calculatorModule;

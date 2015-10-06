@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browserify-istanbul": "^0.2.1",
     "gulp": "^3.9.0",
     "gulp-plato": "^1.0.2",
     "jasmine-core": "^2.3.4",

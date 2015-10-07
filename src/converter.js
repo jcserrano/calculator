@@ -10,31 +10,10 @@ var converterModule = (function () {
     }
   };
 
-  function getFromCurrency(fCurrency) {
-    var from;
-    for (var iFromCurrency in objExchangeRate) {
-      if(iFromCurrency === fCurrency) {
-        from = objExchangeRate[iFromCurrency];
-      }
-    }
-    return from;
-  }
-
-  function getToCurrency(exchangeRate, tCurrency) {
-    var to;
-    for (var iToCurrency in exchangeRate) {
-      if(iToCurrency === tCurrency) {
-        to = exchangeRate[iToCurrency];
-      }
-    }
-    return to;
-  }
-
   function getExchangeRate(fromCurrency, toCurrency) {
     var exchangeRate;
-    var fCurrency = getFromCurrency(fromCurrency);
-    if (fCurrency) {
-      exchangeRate = getToCurrency(fCurrency, toCurrency);
+    if (objExchangeRate.hasOwnProperty(fromCurrency)) {
+      exchangeRate = objExchangeRate[fromCurrency][toCurrency];
     }
     return exchangeRate;
   }

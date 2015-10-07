@@ -75,5 +75,10 @@
 
       expect(result).toEqual(3699.82);
     });
+
+    it('should not can convert incorrect input Euros (EURS) to Indian Rupee (INR)', function() {
+      var result = converter.calc(50, "EURS", "INR");
+      expect(result).toBeNaN();
+    });
   });
 })();

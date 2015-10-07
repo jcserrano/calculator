@@ -18,7 +18,7 @@ var converterModule = (function () {
       }
     }
     return from;
-  };
+  }
 
   function getToCurrency(exchangeRate, tCurrency) {
     var to;
@@ -28,7 +28,7 @@ var converterModule = (function () {
       }
     }
     return to;
-  };
+  }
 
   function getExchangeRate(fromCurrency, toCurrency) {
     var exchangeRate;

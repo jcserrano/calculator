@@ -10,18 +10,34 @@ var converterModule = (function () {
     }
   };
 
-  function getExchangeRate(fromCurrency, toCurrency) {
+  function getFromCurrency(fCurrency) {
+    var from;
     for (var iFromCurrency in objExchangeRate) {
-      var defaultExchangeRate = objExchangeRate[iFromCurrency];
-      if(iFromCurrency === fromCurrency) {
-        for (var iToCurrency in defaultExchangeRate) {
-          if(iToCurrency === toCurrency) {
-            return defaultExchangeRate[iToCurrency];
-          }
-        }
+      if(iFromCurrency === fCurrency) {
+        from = objExchangeRate[iFromCurrency];
       }
     }
+    return from;
   };
+
+  function getToCurrency(exchangeRate, tCurrency) {
+    var to;
+    for (var iToCurrency in exchangeRate) {
+      if(iToCurrency === tCurrency) {
+        to = exchangeRate[iToCurrency];
+      }
+    }
+    return to;
+  };
+
+  function getExchangeRate(fromCurrency, toCurrency) {
+    var exchangeRate;
+    var fCurrency = getFromCurrency(fromCurrency);
+    if (fCurrency) {
+      exchangeRate = getToCurrency(fCurrency, toCurrency);
+    }
+    return exchangeRate;
+  }
 
   return {
     calc: function(val, fromCurrency, toCurrency) {

@@ -76,10 +76,16 @@
       assert.equal(result, 3699.82);
     });
 
+    it('should can convert US Dollars (USD) to Euros (EUR) with inverse range', function() {
+      var result = converter.calc(50, "USD", "EUR");
+
+      assert.equal(result, 44.52);
+    });
+
     it('should not can convert incorrect input Euros (EURS) to Indian Rupee (INR)', function() {
       var result = converter.calc(50, "EURS", "INR");
 
-      assert.notEqual(result, NaN);
+      assert.equal(result, 0);
     });
   });
 })();

@@ -23,6 +23,7 @@
     "karma-junit-reporter": "^0.3.7",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-qunit": "^0.1.5",
-    "qunitjs": "^1.19.0"
+    "qunitjs": "^1.19.0",
+    "sinon": "^1.17.1"
   }
 }

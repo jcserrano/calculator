@@ -9,36 +9,27 @@ var converterModule = (function () {
     }
   };
 
-  function haveFromCurrency(fCurrency) {
-    return objExchangeRate.hasOwnProperty(fCurrency);
-  }
-
-  function haveToCurrency(fCurrency, tCurrency) {
-    return objExchangeRate[fCurrency].hasOwnProperty(tCurrency);
-  }
-
   function searchRate(fCurrency, tCurrency) {
-    var rate;
-    if (haveFromCurrency(fCurrency) && haveToCurrency(fCurrency, tCurrency)){
-      rate = objExchangeRate[fCurrency][tCurrency];
-    }
-    return rate;
+    return objExchangeRate[fCurrency] && objExchangeRate[fCurrency][tCurrency];
   }
 
-  function getExchangeRate(fromCurrency, toCurrency, inv) {
+  function getRateInv(fromCurrency, toCurrency) {
     var value;
     var rate = searchRate(fromCurrency, toCurrency);
-    if(!inv) {
-      value = (typeof rate !== 'undefined') ? rate : getExchangeRate(toCurrency, fromCurrency, true);
-    } else {
-      value = (typeof rate !== 'undefined') ? (1/rate) : null;
-    }
+    value = (typeof rate !== 'undefined') ? (1/rate) : null;
+    return value;
+  }
+
+  function getExchangeRate(fromCurrency, toCurrency) {
+    var value;
+    var rate = searchRate(fromCurrency, toCurrency);
+    value = (typeof rate !== 'undefined') ? rate : getRateInv(toCurrency, fromCurrency);
     return value;
   }
 
   return {
     calc: function(val, fromCurrency, toCurrency) {
-      var eRate = getExchangeRate(fromCurrency, toCurrency, false);
+      var eRate = getExchangeRate(fromCurrency, toCurrency);
       return Number((val * eRate).toFixed(2));
     }
   };

@@ -1,11 +1,11 @@
 var converterModule = (function () {
   var objExchangeRate = {
-    "EUR": {
-      "USD": 1.123,
-      "INR": 73.9965
+    'EUR': {
+      'USD': 1.123,
+      'INR': 73.9965
     },
-    "USD": {
-      "INR": 65.711
+    'USD': {
+      'INR': 65.711
     }
   };
 
@@ -16,7 +16,7 @@ var converterModule = (function () {
   function getRateInv(fromCurrency, toCurrency) {
     var value;
     var rate = searchRate(fromCurrency, toCurrency);
-    value = (typeof rate !== 'undefined') ? (1/rate) : null;
+    value = (typeof rate !== 'undefined') ? (1 / rate) : null;
     return value;
   }
 

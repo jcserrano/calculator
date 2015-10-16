@@ -1,8 +1,6 @@
 var converter = require('./converter.js');
 
 var calculatorModule = (function () {
-  var converter;
-
   return {
     add: function(num1, num2) {
       return Number(num1) + Number(num2);
@@ -18,10 +16,6 @@ var calculatorModule = (function () {
 
     div: function(num1, num2) {
       return Number(num1) / Number(num2);
-    },
-
-    addConverter: function(c) {
-      converter = c;
     },
 
     currencyConverter: function(value, fromCurrency, toCurrency) {
